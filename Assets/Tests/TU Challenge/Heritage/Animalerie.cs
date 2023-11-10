@@ -11,6 +11,10 @@ namespace TU_Challenge.Heritage
         static Animalerie _instance;
         public static Animalerie Instance => _instance;
 
+
+
+
+
         List<Animal> _zoo;
 
         public List<Animal> Zoo { get => _zoo; }
@@ -20,26 +24,25 @@ namespace TU_Challenge.Heritage
         public Animalerie()
         {
             _zoo = new List<Animal>();
-        }   
+        }
 
         public void AddAnimal(Animal c)
         {
-            throw new NotImplementedException();
+            _zoo.Add(c);
+            OnAddAnimal?.Invoke(c);
+            c.EnterAnimalerie(this);
         }
 
-        public bool Contains(Animal a)
-        {
-            throw new NotImplementedException();
-        }
+        public bool Contains(Animal a) => _zoo.Contains(a);
 
-        public Animal GetAnimal(int index)
-        {
-            throw new NotImplementedException();
-        }
+        public Animal GetAnimal(int index) => _zoo[index]; 
 
         public void FeedAll()
         {
-            throw new NotImplementedException();
+            foreach (Animal a in _zoo)
+            {
+                a.Feed();
+            }
         }
     }
 }

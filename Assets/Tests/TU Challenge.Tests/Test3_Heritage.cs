@@ -5,16 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TU_Challenge.Heritage;
+using UnityEngine;
 
 namespace TU_Challenge.Tests
 {
-    /// <summary>
+    
+/// <summary>
     /// Exercice 3 : on attaque l'héritage avec virtual/override, évènements et protected
     /// Pour rendre les tests visible, tu dois passer le "#if false" à "#if true" ligne 14
     /// </summary>
-#if false
     public class Test3_Heritage
     {
+#if true
         [Test]
         public void ChatEstUnAnimalEtPossedeUnNom()
         {
@@ -68,12 +70,13 @@ namespace TU_Challenge.Tests
         public void ChatBoiteux()
         {
             ChatQuiBoite c = new ChatQuiBoite("Boite");
-            Chat c2 = new Chat("Pas Boite");
-
             Assert.IsTrue(c is Chat);
             Assert.IsTrue(c is Animal);
             Assert.That(c.Pattes, Is.EqualTo(3));
 
+
+
+            Chat c2 = new Chat("Pas Boite");
             Assert.IsTrue(c2 is Chat);
             Assert.IsTrue(c2 is Animal);
             Assert.That(c2.Pattes, Is.EqualTo(4));
@@ -130,6 +133,7 @@ namespace TU_Challenge.Tests
 
             Assert.That(a.GetAnimal(0).Crier(), Is.EqualTo("Miaou (j'ai faim)"));
             Assert.That(a.GetAnimal(1).Crier(), Is.EqualTo("Ouaf (j'ai faim)"));
+            
             a.FeedAll();
 
             Assert.That(a.GetAnimal(0).Crier(), Is.EqualTo("Miaou (c'est bon laisse moi tranquille humain)"));
@@ -224,6 +228,6 @@ namespace TU_Challenge.Tests
 
             Assert.That(p.Name, Is.EqualTo("Nemo le poisson"));
         }
-    }
 #endif
+    }
 }

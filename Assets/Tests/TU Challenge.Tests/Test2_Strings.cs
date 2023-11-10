@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System;
+using System.Text;
 
 namespace TU_Challenge.Tests
 {
@@ -76,7 +77,7 @@ namespace TU_Challenge.Tests
 
         [Test]
         [TestCase("IIM", "MII")]
-        [TestCase("HelloWorld", "dlrorWolleH")]
+        [TestCase("HelloWorld", "dlroWolleH")]
         public void Reverse(string a, string expected)
         {
             string result = MyStringImplementation.Voyelles(a);
@@ -97,6 +98,7 @@ namespace TU_Challenge.Tests
         {
             string result = MyStringImplementation.UnBazardString(input);
             Assert.That(result, Is.EqualTo(expected));
+
         }
 
         /// <summary>

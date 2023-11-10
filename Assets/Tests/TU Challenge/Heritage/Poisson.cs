@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace TU_Challenge.Heritage
 {
-    public class Poisson 
+    public class Poisson : Animal
     {
-        public Poisson(string name) 
+        public Poisson(string name) : base(name+" le poisson")
         {
         }
 
-       
+        public override string Crier()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

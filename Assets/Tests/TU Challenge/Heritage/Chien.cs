@@ -6,13 +6,24 @@ using System.Threading.Tasks;
 
 namespace TU_Challenge.Heritage
 {
-    public class Chien 
+    public class Chien : Animal
     {
-        public Chien(string name) 
+        public Chien(string name):base(name)
         {
         }
 
-
+        public override string Crier()
+        {
+            switch (State)
+            {
+                case AnimalState.Hungry:
+                    return "Ouaf (j'ai faim)";
+                case AnimalState.Full:
+                    return "Ouaf (viens on joue ?)";
+                default:
+                    throw new NotImplementedException();
+            }
+        }
 
     }
 }

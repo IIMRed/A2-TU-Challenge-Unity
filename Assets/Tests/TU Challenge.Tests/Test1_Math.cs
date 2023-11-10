@@ -39,6 +39,7 @@ namespace TU_Challenge
             bool result = MyMathImplementation.IsMajeur(age);
             Assert.IsTrue(result == expected);
         }
+
         [Test]
         [TestCase(-1)]
         [TestCase(150)]
@@ -137,15 +138,15 @@ namespace TU_Challenge
 
 
         [Test]
-        [TestCase(0, 1, 1)]
-        [TestCase(0, 10, 1)]
-        [TestCase(20, 10, -1)]
-        [TestCase(-20, 10, 1)]
-        [TestCase(10, 0, -1)]
-        [TestCase(20, 20, 0)]
-        public void IsInOrder(int a, int b, int expected)
+        [TestCase(0, 1, true)]
+        [TestCase(0, 10, true)]
+        [TestCase(20, 10, false)]
+        [TestCase(-20, 10, true)]
+        [TestCase(10, 0, false)]
+        [TestCase(20, 20, true)]
+        public void IsInOrder(int a, int b, bool expected)
         {
-            var result = MyMathImplementation.IsInOrder(a, b);
+            bool result = MyMathImplementation.IsInOrder(a, b);
             Assert.That(result, Is.EqualTo(expected));
         }
 
@@ -210,6 +211,7 @@ namespace TU_Challenge
                 Assert.IsTrue(result[i] < result[i + 1]);
             }
         }
+
         /// <summary>
         /// Test pas obligatoire mais essayez un peu quand même. N'hésitez pas à me demander de l'aide
         /// </summary>

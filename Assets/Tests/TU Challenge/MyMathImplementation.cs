@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace TU_Challenge
 {
     public class MyMathImplementation
     {
+        
+
         internal static int Add(int a, int b)
         {
             throw new NotImplementedException();
@@ -50,12 +54,23 @@ namespace TU_Challenge
 
         internal static bool IsMajeur(int age)
         {
-            throw new NotImplementedException();
+            if (age < 0) throw new ArgumentException();
+
+            //return age >= 18;
+            if (age >= 18) return true; 
+            else return false;
         }
 
         internal static bool IsPrimary(int a)
-        {
-            throw new NotImplementedException();
+        { 
+            for(int i = 2; i <= Mathf.Sqrt(a); i++)
+            {
+                if(a % i == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         internal static int Power(int a, int b)
